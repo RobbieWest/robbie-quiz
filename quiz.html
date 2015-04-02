@@ -1,71 +1,92 @@
+<!--
+Nice job, Robbie. Just a few changes I'd make.
+-->
 <!DOCTYPE HTML>
 <html>
 <head>
 <title>Quiz</title>
 <style>
-h1 {
-	color: red;
-	font-size: 2em;
+/* this is a little nit picky, but try to stick to source order with styles */
+* {
+	box-sizing: border-box;/* this helps with padding */
 }
+
 section {
 	background: #000;
 	width: 960px;
 	margin:0 auto;
 }
-.boxOne {
+
+h1 {
+	color: red;
+	font-size: 2em;
+}
+
+/* made this an article instead of div with class */
+article {
 	background: #FFEBCD;
 	width: 640px;
+	height: 600px;
+	padding: 20px;
 	float: left;
 }
 p {
-	width: 640px;
-	height: 300px;
-	padding: 20px;
-	float: left;
+	/* you don't want to set size of paragraph - only on containers */
+	/* moved padding to container so you don't have to add it all elements */
+	/* doesn't need float */
 	font-size: 1em;
 }
 aside {
 	float: right;
 	width: 300px;
+	height: 600px;
 	background: #00FFFF;
-    margin: 0  auto;
+  /* don't need margin on aside in this layout */
 }
-.clearfix:after{
-	clear: both;
-}
-footer {
-	clear: both;
-	background: #6A5ACD;
 
-}
 img {
 	width: 90%;
 }
 
+/* good job with clearfix, just need a few more rules */
+.clearfix:after{
+	content: ' ';
+	display: table;
+	clear: both;
+}
+footer {
+	/* doesn't need clear since after element already clears */
+	background: #6A5ACD;
+
+}
 </style>
 </head>
 
 
 <body>
-<section class="clearfix">
+<section>
 <h1>Robbie's Website</h1>
 
-<div class="boxOne">
-<p>There is a lot of content in this box</p>
-</div>
+<div class="clearfix">
+	<!-- you can code this as an article -->
+	<article>
+	<p>There is a lot of content in this box</p>
+	</article>
 
 
-<aside>
-<img src="download.jpg">
-</img>
-<p>proud to be a Cherokee Indian</p>
+	<aside>
+	<img src="download.jpg">
+	</img>
+	<p>proud to be a Cherokee Indian</p>
 
-</aside>
-</div>
+	</aside>
+</div><!-- clearfix -->
 
+<!-- all content goes inside body tags -->
+<footer>Copyright stuff goes here....</footer>
 
-
+</section><!-- should be section -->
 
 </body>
-<footer>Copyright stuff goes here....</footer>
+
 </html>
